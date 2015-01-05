@@ -123,8 +123,8 @@ class UfrontApplication extends HttpApplication
 			addLogHandler( new FileLogger(configuration.logFile) );
 		}
 
-		// Add URL filter for basePath, if it is not "/"
-		var path = Strings.trim( configuration.basePath, "/" );
+		// changed Strings.trim to StringTools.trim and removed the second argument
+		var path = StringTools.trim( configuration.basePath);
 		if ( path.length>0 )
 			super.addUrlFilter( new DirectoryUrlFilter(path) );
 
